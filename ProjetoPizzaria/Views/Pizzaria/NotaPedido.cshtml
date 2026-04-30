@@ -1,0 +1,21 @@
+﻿@model ProjetoPizzaria.Models.Pedido
+
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h3>Pedido Confirmado!</h3>
+        <hr />
+        <p><strong>Tamanho: </strong>@Model.tamanho</p>
+        <p><strong>Sabor: </strong>@Model.sabor</p>
+        <p><strong>Borda recheada: </strong>@Model.borda</p>
+        <p><strong>Adicionais: </strong>@(Model.adicionais.Any() ? string.Join(", ", Model.adicionais) : "Nenhum")</p>
+        
+        <p><strong>Horário do pedido: </strong>@Model.horarioPedido.ToString("HH:mm")</partial>
+            <p><strong>Previsão de Entrega: </strong>@Model.previsaoEntrega.ToString("HH:mm")</p>
+            <p><strong>Endereco: </strong>@Model.endereco</p>
+            <h4 class="mt-3">
+                Valor Total:
+                <span class="text-primary">R$@ViewBag.total.ToString("F2")</span>
+            </h4>
+            <a asp-action="NovoPedido" class="btn btn-outline-primary mt-3">Novo Pedido</a>
+        </div>
+    </div>
